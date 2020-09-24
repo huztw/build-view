@@ -76,7 +76,7 @@ class Content implements Renderable
                     $data->with($this->shiftData($data->name()));
                 }
 
-                return view('admin::partials.push', ['key' => $push, 'value' => $data]);
+                return view('build-view::partials.push', ['key' => $push, 'value' => $data]);
             }, $this->push));
         } elseif (count($this->push) > 0) {
             throw new \InvalidArgumentException("Layout [{$this->layout}] not found.");
