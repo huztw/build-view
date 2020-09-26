@@ -13,8 +13,9 @@ class BuildViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'huztw');
+
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'huztw');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'huztw');
         // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -31,7 +32,7 @@ class BuildViewServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/build-view.php', 'build-view');
+        $this->mergeConfigFrom(__DIR__ . '/../config/build-view.php', 'build-view');
 
         // Register the service the package provides.
         $this->app->singleton('build-view', function ($app) {
@@ -48,7 +49,7 @@ class BuildViewServiceProvider extends ServiceProvider
     {
         return ['build-view'];
     }
-    
+
     /**
      * Console-specific booting.
      *
@@ -58,22 +59,22 @@ class BuildViewServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/build-view.php' => config_path('build-view.php'),
+            __DIR__ . '/../config/build-view.php' => config_path('build-view.php'),
         ], 'build-view.config');
 
         // Publishing the views.
         /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/huztw'),
+        __DIR__.'/../resources/views' => base_path('resources/views/vendor/huztw'),
         ], 'build-view.views');*/
 
         // Publishing assets.
         /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/huztw'),
+        __DIR__.'/../resources/assets' => public_path('vendor/huztw'),
         ], 'build-view.views');*/
 
         // Publishing the translation files.
         /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/huztw'),
+        __DIR__.'/../resources/lang' => resource_path('lang/vendor/huztw'),
         ], 'build-view.views');*/
 
         // Registering package commands.
